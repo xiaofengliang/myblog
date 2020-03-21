@@ -1,0 +1,15 @@
+<% if (theme.comment.Select == "Valine") { %>
+
+<div id="vcomments"></div>
+
+<% } else if (theme.comment.Select == "Disqus") { %>
+
+<% if (theme.comment.Disqus.needProxy) { %>
+<div id="comment"></div>
+
+<% } else if (!theme.comment.Disqus.needProxy) { %>
+<div id="disqus_thread"></div>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+<% } %>
+<% } %>
