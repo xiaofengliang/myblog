@@ -1,0 +1,31 @@
+---
+title: 关于COVID-19的思考
+date: 2020-4 21:18:59
+tags:
+excerpt: P5.js
+photos: https://i.loli.net/2020/05/04/bQdyXvIVLYGONir.jpg
+
+---
+
+# 桌球
+
+***说明：这次是一个借鉴了桌球游戏的机制做的关于人和传染源之间的关系的游戏***
+
+玩家（白球）需要在指定的步数（step）里，把传染源（紫球）打入到四个角落的隔离区里，而且人（无感染）（蓝球）与传染源的碰撞会增加感染几率（蓝球上的数字），当这个数字大于10，蓝球就会变成紫球，人就被感染了，游戏胜利的条件是将所有传染源（virusNum）都打进隔离区，失败的条件是所有的人（peoNum）都被感染，蓝球都变成了紫球，或者步数用完。
+
+
+编程思路：这次的程序主要有三个难点，
+1. 如何设置类，这个程序只设置了一个类agent，但是难的是一个类如何控制三种对象，（玩家，人，传染源），这里我是用一个属性来控制的，flag，不同的flag属性对应着不同的外形和判断逻辑。
+
+2. 如何实现碰撞和碰撞后的计数方法：这里有个函数collision(a1,a2)，我首先传外部传入两个agent，然后通过数学和物理方法计算出他们碰撞之后的速度，然后传入到agent.update,就可以实现速度和位置的更新。
+
+3. 如何通过鼠标的交互使大球运动，我这次是用两个变量，mouseDown来纪录鼠标按下的位置，用mouseCur来记录鼠标的实时位置，两个坐标相见就可以得到一个方向向量，然后在用这个方向向量来计算大球的加速度方向。
+
+<p class="codepen" data-height="523" data-theme-id="dark" data-default-tab="result" data-user="xiaofengliang" data-slug-hash="rNOBYxV" style="height: 523px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="rNOBYxV">
+  <span>See the Pen <a href="https://codepen.io/xiaofengliang/pen/rNOBYxV">
+  rNOBYxV</a> by xiaofengliang (<a href="https://codepen.io/xiaofengliang">@xiaofengliang</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
+<script async src="https://static.codepen.io/assets/embed/ei.js"></script>
+
+
